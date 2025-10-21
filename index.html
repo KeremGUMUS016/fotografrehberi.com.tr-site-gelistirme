@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fotoğrafçılık Sayfası</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    header img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+    }
+
+    /* Sabit üst menü */
+    .top-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 10px 15px;
+      border-bottom-left-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1000;
+      text-align: right;
+    }
+
+    .top-menu .dots {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .top-menu a {
+      display: block;
+      color: #c00;
+      text-decoration: none;
+      margin: 5px 0;
+      font-weight: bold;
+    }
+
+    .top-menu a:hover {
+      color: #900;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin: 80px 0 20px;
+    }
+
+    .tab {
+      background-color: #c00;
+      color: white;
+      padding: 10px 20px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .tab:hover {
+      background-color: #a00;
+    }
+
+    .content {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-menu">
+    <div class="dots">⋮</div>
+    <a href="#" onclick="showTab(1)">1. sekme</a>
+    <a href="#" onclick="showTab(2)">2. sekme</a>
+    <a href="#" onclick="showTab(3)">3. sekme</a>
+  </div>
+
+  <header>
+    <img src="20241104_122647.jpg" alt="Fotoğraf">
+  </header>
+
+  <div class="tabs">
+    <div class="tab" onclick="showTab(1)">1. sekme</div>
+    <div class="tab" onclick="showTab(2)">2. sekme</div>
+    <div class="tab" onclick="showTab(3)">3. sekme</div>
+  </div>
+
+  <div class="content" id="tab1">
+    <h2>Doğru Pozlama Nedir?</h2>
+    <p>İdeal bir fotoğraf, hem gölgelerde hem de vurgularda detayları koruyacak şekilde pozlanmalıdır. Ancak bazen bilinçli olarak az ya da fazla pozlama tercih edilir.</p>
+  </div>
+
+  <div class="content hidden" id="tab2">
+    <h2>Alan Derinliği ve Hareket</h2>
+    <p>Alan derinliği, fotoğrafta hangi bölgelerin net olacağını belirler. Hareket ise pozlama süresine bağlı olarak bulanıklık veya keskinlik yaratabilir.</p>
+  </div>
+
+  <div class="content hidden" id="tab3">
+    <h2>Dijital Görüntüleme</h2>
+    <p>Dijital fotoğrafçılıkta sensör kalitesi, çözünürlük ve renk doğruluğu gibi faktörler görüntü kalitesini doğrudan etkiler.</p>
+  </div>
+
+  <script>
+    function showTab(tabNumber) {
+      document.querySelectorAll('.content').forEach((el, index) => {
+        el.classList.toggle('hidden', index !== tabNumber - 1);
+      });
+    }
+  </script>
+
+</body>
+</html>
